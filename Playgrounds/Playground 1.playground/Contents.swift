@@ -192,15 +192,49 @@ nbHabitants.removeValue(forKey: "Paris")
 
 //: # Optionnels
 
+// Optionnel avec type précisé (syntaxe "shorthand")
+let nbHabNantes: Int? = nbHabitants["Paris"]
 
+// Optionnel avec type précisé (syntaxe "normal")
+let nbHabNantes2: Optional<Int> = nbHabitants["Nantes"]
+
+// Syntaxe if-let (récupère/teste/déballe)
+if let nbHabParis = nbHabitants["Paris"] {
+    nbHabParis * 2
+}
+
+// Syntaxe guard-let
+guard let nbHabBdx = nbHabitants["Bordeaux"] else { fatalError() }
+nbHabBdx * 2
+
+// nil coalescing operator (valeur de défaut)
+let nbHabLyon = nbHabitants["Lyon"] ?? 10
+
+struct Owner {
+    var name: String
+    var cats: [Cat]?
+    var dogs: [Dog]?
+}
+
+// Optional chaining
+let me = Owner(name: "Ludovic", cats: [Cat()], dogs: nil)
+guard let catName = me.cats?.first?.name else { fatalError("No cats") }
 
 //: # Enum
 
-enum PaymentMode {
-    case creditCard
-    case cash
-    case check
+// With raw values
+enum PaymentMode: String {
+    case creditCard = "Carte de crédit"
+    case 💶
+    case check = "Chèques"
 }
 
-let acceptedPayemnts: Set<PaymentMode> = [.cash, .check, .creditCard]
+let acceptedPayemnts: Set<PaymentMode> = [.check, .creditCard, .💶]
+for p in acceptedPayemnts {
+    print(p.rawValue)
+}
 
+let wsString = "Chèques"
+if let payment = PaymentMode(rawValue: wsString) {
+    payment
+}
