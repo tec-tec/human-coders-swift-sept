@@ -222,6 +222,32 @@ guard let catName = me.cats?.first?.name else { fatalError("No cats") }
 
 //: # Enum
 
+// With associated values
+enum TransportStatus {
+    case onTime
+    case delayed (delay: Int, reason: String)
+    case cancelled (reason: String)
+}
+
+struct Train {
+    var number: String
+    var status: TransportStatus
+}
+
+var t1 = Train(number: "TOTO", status: .onTime)
+t1.status = .delayed(delay: 10, reason: "Panne de reveil")
+
+switch t1.status {
+case .delayed (let delay, let _) where delay <= 5:
+    fallthrough
+case .onTime:
+    print("Je suis à l'heure")
+case .delayed (let delay, let reason):
+    print("J'ai \(delay) minutes de retard à case de \(reason)")
+case .cancelled:
+    ()
+}
+
 // With raw values
 enum PaymentMode: String {
     case creditCard = "credit_card" //"Carte de crédit"
