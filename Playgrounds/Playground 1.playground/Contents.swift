@@ -224,17 +224,80 @@ guard let catName = me.cats?.first?.name else { fatalError("No cats") }
 
 // With raw values
 enum PaymentMode: String {
-    case creditCard = "Carte de crédit"
-    case 💶
-    case check = "Chèques"
+    case creditCard = "credit_card" //"Carte de crédit"
+    case 💶 = "euro" // "Cash"
+    case check = "cheques"
+
+    // Failable init
+    init?(legacyCode: Int) {
+        switch legacyCode {
+        case 0:
+            self = .creditCard
+        case 1:
+            self = .💶
+        case 2:
+            self = .check
+        default:
+            return nil
+        }
+    }
+
+    // Computed property
+    var printableName: String {
+        switch self {
+        case .creditCard:
+            return "Carte de crédit"
+        case .💶:
+            return "Cash"
+        case .check:
+            return "Chèque"
+        }
+    }
 }
 
+var dico = [PaymentMode.creditCard : "Carte de crédit"]
 let acceptedPayemnts: Set<PaymentMode> = [.check, .creditCard, .💶]
 for p in acceptedPayemnts {
-    print(p.rawValue)
+    print(p.printableName)
 }
 
-let wsString = "Chèques"
+let wsString = "euro"
 if let payment = PaymentMode(rawValue: wsString) {
     payment
 }
+PaymentMode(legacyCode: 0)?.printableName
+
+//: Computed properties
+
+struct Point {
+    var x: Double
+    var y: Double
+}
+
+struct Size {
+    var width: Double
+    var heigh: Double
+}
+
+struct Rect {
+    var origin: Point
+    var size: Size
+
+    var center: Point {
+        get {
+            let centerX = origin.x + size.width / 2
+            let centerY = origin.y + size.heigh / 2
+            return Point(x: centerX, y: centerY)
+        }
+
+        set(newCenter) {
+            origin.x = newCenter.x - size.width / 2
+            origin.y = newCenter.y - size.heigh / 2
+        }
+    }
+}
+
+var rect1 = Rect(origin: Point(x: 0, y: 0), size: Size(width: 10, heigh: 10))
+rect1.center = Point(x: 10, y: 10)
+rect1.origin.x
+

@@ -12,9 +12,7 @@ enum Style {
 struct Restaurant: Hashable {
 
     var hashValue: Int {
-        get {
-            return (name+address).hashValue
-        }
+        return (name+address).hashValue
     }
 
     static func ==(lhs: Restaurant, rhs: Restaurant) -> Bool {
