@@ -8,15 +8,34 @@
 
 import Foundation
 
-enum Style {
-    case japanese
-    case french
-    case burger
-    case vegan
-}
-
 struct Restaurant: Hashable {
 
+    enum Style: String {
+        case japanese
+        case french
+        case burger
+        case vegan
+
+        static var all: [Style] {
+            return [.japanese, .french, .burger, .vegan]
+        }
+
+        init?(allIndex: Int) {
+            switch allIndex {
+            case 0:
+                self = .japanese
+            case 1:
+                self = .french
+            case 2:
+                self = .burger
+            case 3:
+                self = .vegan
+            default:
+                return nil
+            }
+        }
+    }
+    
     var hashValue: Int {
         return (name+address).hashValue
     }
