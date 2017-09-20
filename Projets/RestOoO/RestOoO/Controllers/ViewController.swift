@@ -18,12 +18,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var noteSlider: UISlider!
     @IBOutlet weak var isAccessibleSwitch: UISwitch!
 
+    var directory = Directory()
+
     //MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
+        configureStylesSegmentedControl()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,12 +36,29 @@ class ViewController: UIViewController {
     //MARK: - UI Actions
 
     @IBAction func saveRestaurant(_ sender: UIButton) {
-        
+
+        guard let name = nameTextField.text, name.count > 2 else { return }
+        guard let address = addressTextField.text, address.count > 5 else { return }
+        var stylesSet: Set<Restaurant.Style> = []
+        if let style = Restaurant.Style(allIndex: stylesSegmentedControl.selectedSegmentIndex) {
+            stylesSet.insert(style)
+        }
+
+        let newResto = Restaurant(name: name, address: address, styles: stylesSet, note: Int(noteSlider.value), accessible: isAccessibleSwitch.isOn)
+        directory.add(newResto)
     }
 
     //MARK: - Public methods
 
     //MARK: - Private methods
+
+    private func configureStylesSegmentedControl() {
+
+        stylesSegmentedControl.removeAllSegments()
+        for (index, style) in Restaurant.Style.all.enumerated() {
+            stylesSegmentedControl.insertSegment(withTitle: style.rawValue.capitalized, at: index, animated: false)
+        }
+    }
 
 }
 
