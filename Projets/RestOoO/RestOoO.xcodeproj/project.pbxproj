@@ -12,6 +12,8 @@
 		33901DE21F716F4600291C94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33901DE01F716F4600291C94 /* Main.storyboard */; };
 		33901DE41F716F4600291C94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33901DE31F716F4600291C94 /* Assets.xcassets */; };
 		33901DE71F716F4600291C94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33901DE51F716F4600291C94 /* LaunchScreen.storyboard */; };
+		33901DF11F729A7700291C94 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33901DF01F729A7700291C94 /* Restaurant.swift */; };
+		33901DF31F729A8200291C94 /* Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33901DF21F729A8200291C94 /* Directory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		33901DE31F716F4600291C94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33901DE61F716F4600291C94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		33901DE81F716F4600291C94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33901DF01F729A7700291C94 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		33901DF21F729A8200291C94 /* Directory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Directory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +59,31 @@
 			isa = PBXGroup;
 			children = (
 				33901DDC1F716F4600291C94 /* AppDelegate.swift */,
-				33901DDE1F716F4600291C94 /* ViewController.swift */,
+				33901DEE1F72569700291C94 /* Controllers */,
+				33901DEF1F729A6700291C94 /* Models */,
 				33901DE01F716F4600291C94 /* Main.storyboard */,
 				33901DE31F716F4600291C94 /* Assets.xcassets */,
 				33901DE51F716F4600291C94 /* LaunchScreen.storyboard */,
 				33901DE81F716F4600291C94 /* Info.plist */,
 			);
 			path = RestOoO;
+			sourceTree = "<group>";
+		};
+		33901DEE1F72569700291C94 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				33901DDE1F716F4600291C94 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		33901DEF1F729A6700291C94 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				33901DF01F729A7700291C94 /* Restaurant.swift */,
+				33901DF21F729A8200291C94 /* Directory.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +160,8 @@
 			files = (
 				33901DDF1F716F4600291C94 /* ViewController.swift in Sources */,
 				33901DDD1F716F4600291C94 /* AppDelegate.swift in Sources */,
+				33901DF11F729A7700291C94 /* Restaurant.swift in Sources */,
+				33901DF31F729A8200291C94 /* Directory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
