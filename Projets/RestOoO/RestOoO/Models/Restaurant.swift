@@ -15,9 +15,10 @@ struct Restaurant: Hashable {
         case french
         case burger
         case vegan
+        case viet
 
         static var all: [Style] {
-            return [.japanese, .french, .burger, .vegan]
+            return [.japanese, .french, .burger, .vegan, .viet]
         }
 
         init?(allIndex: Int) {
@@ -30,6 +31,8 @@ struct Restaurant: Hashable {
                 self = .burger
             case 3:
                 self = .vegan
+            case 4:
+                self = .viet
             default:
                 return nil
             }

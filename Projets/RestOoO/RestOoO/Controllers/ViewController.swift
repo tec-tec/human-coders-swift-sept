@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     //MARK: - Properties
 
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak private var nameTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var stylesSegmentedControl: UISegmentedControl!
     @IBOutlet weak var noteSlider: UISlider!
@@ -39,16 +39,17 @@ class ViewController: UIViewController {
 
         guard let name = nameTextField.text, name.count > 2 else { return }
         guard let address = addressTextField.text, address.count > 5 else { return }
+
         var stylesSet: Set<Restaurant.Style> = []
         if let style = Restaurant.Style(allIndex: stylesSegmentedControl.selectedSegmentIndex) {
             stylesSet.insert(style)
         }
 
-        let newResto = Restaurant(name: name, address: address, styles: stylesSet, note: Int(noteSlider.value), accessible: isAccessibleSwitch.isOn)
+        let newResto = Restaurant(name: name, address: address, styles: stylesSet, note: Int(roundf(noteSlider.value)), accessible: isAccessibleSwitch.isOn)
         directory.add(newResto)
     }
 
-    //MARK: - Public methods
+    //MARK: - Internal methods
 
     //MARK: - Private methods
 
@@ -61,4 +62,3 @@ class ViewController: UIViewController {
     }
 
 }
-
