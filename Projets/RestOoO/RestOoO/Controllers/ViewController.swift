@@ -12,6 +12,11 @@ class ViewController: UIViewController {
 
     //MARK: - Properties
 
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var addressTextField: UITextField!
+    @IBOutlet weak var stylesSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var noteSlider: UISlider!
+    @IBOutlet weak var isAccessibleSwitch: UISwitch!
 
     //MARK: - Lifecycle
 
@@ -27,6 +32,10 @@ class ViewController: UIViewController {
     }
 
     //MARK: - UI Actions
+
+    @IBAction func saveRestaurant(_ sender: UIButton) {
+        
+    }
 
     //MARK: - Public methods
 

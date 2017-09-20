@@ -86,11 +86,21 @@
                                 <rect key="frame" x="170" y="292" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveRestaurant:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BqX-SM-j33"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.97999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="addressTextField" destination="ZBH-m1-QrY" id="CDU-ql-ZMd"/>
+                        <outlet property="isAccessibleSwitch" destination="Xy3-37-ReR" id="TLK-5n-PUC"/>
+                        <outlet property="nameTextField" destination="uFq-hY-Pab" id="q9Y-Ph-bdQ"/>
+                        <outlet property="noteSlider" destination="puX-KL-OVc" id="Psh-mD-oTS"/>
+                        <outlet property="stylesSegmentedControl" destination="zjb-h3-1Je" id="e9t-Oo-HWQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
