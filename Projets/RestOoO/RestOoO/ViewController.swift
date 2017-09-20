@@ -12,8 +12,6 @@ class ViewController: UIViewController {
 
     //MARK: - Properties
 
-    @IBOutlet weak var monLabel: UILabel!
-
     //MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -27,10 +25,6 @@ class ViewController: UIViewController {
     }
 
     //MARK: - UI Actions
-
-    @IBAction func monAction(_ sender: Any) {
-
-    }
 
     //MARK: - Public methods
 
