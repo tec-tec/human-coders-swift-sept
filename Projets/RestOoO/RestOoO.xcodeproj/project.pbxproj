@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33252BA41F72C16E00146B7E /* RestaurantListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33252BA31F72C16E00146B7E /* RestaurantListViewController.swift */; };
 		33901DDD1F716F4600291C94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33901DDC1F716F4600291C94 /* AppDelegate.swift */; };
 		33901DDF1F716F4600291C94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33901DDE1F716F4600291C94 /* ViewController.swift */; };
 		33901DE21F716F4600291C94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33901DE01F716F4600291C94 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		33252BA31F72C16E00146B7E /* RestaurantListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListViewController.swift; sourceTree = "<group>"; };
 		33901DD91F716F4600291C94 /* RestOoO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestOoO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33901DDC1F716F4600291C94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33901DDE1F716F4600291C94 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				33901DDE1F716F4600291C94 /* ViewController.swift */,
+				33252BA31F72C16E00146B7E /* RestaurantListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 			files = (
 				33901DDF1F716F4600291C94 /* ViewController.swift in Sources */,
 				33901DDD1F716F4600291C94 /* AppDelegate.swift in Sources */,
+				33252BA41F72C16E00146B7E /* RestaurantListViewController.swift in Sources */,
 				33901DF11F729A7700291C94 /* Restaurant.swift in Sources */,
 				33901DF31F729A8200291C94 /* Directory.swift in Sources */,
 			);
