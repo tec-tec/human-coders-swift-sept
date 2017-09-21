@@ -15,6 +15,17 @@ class RestaurantListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetails" {
+            let vc = segue.destination
+            vc.title = "Youhou"
+        } else if segue.identifier == "showForm" {
+            guard let navController = segue.destination as? UINavigationController else { return }
+            guard let rootController = navController.viewControllers.first else { return }
+            rootController.title = "Bon appétit"
+        }
+    }
 }
 
 extension RestaurantListViewController: UITableViewDataSource {
