@@ -17,6 +17,11 @@ class RestaurantListViewController: UIViewController {
         super.viewDidLoad()
 
         NotificationCenter.default.addObserver(self, selector: #selector(modelUpdated(note:)), name: Notification.Name("modelUpdated"), object: directory)
+
+//        NotificationCenter.default.addObserver(forName: Notification.Name("modelUpdated"), object: directory, queue: OperationQueue.main) { (note) in
+//            self.tableView.reloadData()
+//            print("\(note.userInfo!["restoName"])")
+//        }
     }
 
     @objc func modelUpdated(note: Notification) {
