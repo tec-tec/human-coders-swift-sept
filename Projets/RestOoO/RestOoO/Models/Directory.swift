@@ -29,7 +29,7 @@ class Directory {
 
     func remove(at index: Int) {
         let r = restaurants.remove(at: index)
-        NotificationCenter.default.post(name: Notification.Name("modelUpdated"), object: self, userInfo: ["restoName":r.name])
+        NotificationCenter.default.post(name: Notification.Name(Constants.NotificationNames.modelUpdated), object: self, userInfo: ["restoName":r.name])
     }
 
     static func demoDirectory() -> Directory {

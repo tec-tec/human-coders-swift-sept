@@ -16,6 +16,7 @@
 		33901DF11F729A7700291C94 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33901DF01F729A7700291C94 /* Restaurant.swift */; };
 		33901DF31F729A8200291C94 /* Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33901DF21F729A8200291C94 /* Directory.swift */; };
 		33B2FE4C1F73F4AA00F8FF72 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2FE4B1F73F4AA00F8FF72 /* DetailsViewController.swift */; };
+		33B2FE4E1F74035500F8FF72 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B2FE4D1F74035500F8FF72 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		33901DF01F729A7700291C94 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		33901DF21F729A8200291C94 /* Directory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Directory.swift; sourceTree = "<group>"; };
 		33B2FE4B1F73F4AA00F8FF72 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		33B2FE4D1F74035500F8FF72 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				33901DDC1F716F4600291C94 /* AppDelegate.swift */,
+				33B2FE4D1F74035500F8FF72 /* Constants.swift */,
 				33901DEE1F72569700291C94 /* Controllers */,
 				33901DEF1F729A6700291C94 /* Models */,
 				33901DE01F716F4600291C94 /* Main.storyboard */,
@@ -168,6 +171,7 @@
 				33901DDD1F716F4600291C94 /* AppDelegate.swift in Sources */,
 				33252BA41F72C16E00146B7E /* RestaurantListViewController.swift in Sources */,
 				33901DF11F729A7700291C94 /* Restaurant.swift in Sources */,
+				33B2FE4E1F74035500F8FF72 /* Constants.swift in Sources */,
 				33901DF31F729A8200291C94 /* Directory.swift in Sources */,
 				33B2FE4C1F73F4AA00F8FF72 /* DetailsViewController.swift in Sources */,
 			);
