@@ -187,21 +187,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAQ-mf-1Yz">
-                                <rect key="frame" x="170" y="358" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="saveRestaurant:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BqX-SM-j33"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.97999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="XWb-5h-UtY">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Srz-vp-Ign"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="kV0-bP-xtK"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Srz-vp-Ign">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="0mj-Ag-V4o"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="kV0-bP-xtK">
+                            <connections>
+                                <action selector="saveRestaurant" destination="BYZ-38-t0r" id="jE5-5i-4Zz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addressTextField" destination="ZBH-m1-QrY" id="CDU-ql-ZMd"/>

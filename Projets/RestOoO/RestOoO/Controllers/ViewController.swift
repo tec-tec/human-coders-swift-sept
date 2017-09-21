@@ -35,7 +35,7 @@ class ViewController: UIViewController {
 
     //MARK: - UI Actions
 
-    @IBAction func saveRestaurant(_ sender: UIButton) {
+    @IBAction func saveRestaurant() {
 
         guard let name = nameTextField.text, name.count > 2 else { return }
         guard let address = addressTextField.text, address.count > 5 else { return }
@@ -47,6 +47,11 @@ class ViewController: UIViewController {
 
         let newResto = Restaurant(name: name, address: address, styles: stylesSet, note: Int(roundf(noteSlider.value)), accessible: isAccessibleSwitch.isOn)
         directory.add(newResto)
+        dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func cancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
 
     //MARK: - Internal methods
