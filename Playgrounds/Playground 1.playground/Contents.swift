@@ -327,3 +327,55 @@ var rect1 = Rect(origin: Point(x: 0, y: 0), size: Size(width: 10, heigh: 10))
 rect1.center = Point(x: 10, y: 10)
 rect1.origin.x
 
+protocol DoubleNamed {
+    var firstName: String { get }
+    var lastName: String { get }
+}
+
+protocol FullyNamed: DoubleNamed {
+    var fullName: String { get }
+}
+
+extension FullyNamed {
+    var fullName: String {
+        return firstName + " " + lastName
+    }
+}
+
+struct Human: FullyNamed {
+
+    var firstName: String
+    var lastName: String
+}
+
+struct Alien: FullyNamed {
+
+    var firstName: String
+    var lastName: String
+}
+
+struct SuperHero: FullyNamed {
+    var firstName: String
+    var lastName: String
+
+    var secretName: String
+
+    var fullName: String {
+        return "Mr " + secretName
+    }
+}
+
+let moi = SuperHero(firstName: "Ludovic", lastName: "Ollagnier", secretName: "SwiftMan")
+moi.fullName
+
+
+
+
+
+
+
+
+
+
+
+
