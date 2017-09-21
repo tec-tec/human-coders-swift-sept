@@ -14,6 +14,8 @@ class Directory {
 
     func add(_ restaurant: Restaurant) {
         restaurants.append(restaurant)
+
+        NotificationCenter.default.post(name: Notification.Name("modelUpdated"), object: self, userInfo: ["restoName":restaurant.name])
     }
 
     func list() -> [Restaurant] {
@@ -26,7 +28,8 @@ class Directory {
     }
 
     func remove(at index: Int) {
-        restaurants.remove(at: index)
+        let r = restaurants.remove(at: index)
+        NotificationCenter.default.post(name: Notification.Name("modelUpdated"), object: self, userInfo: ["restoName":r.name])
     }
 
     static func demoDirectory() -> Directory {

@@ -15,6 +15,13 @@ class RestaurantListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(modelUpdated(note:)), name: Notification.Name("modelUpdated"), object: directory)
+    }
+
+    @objc func modelUpdated(note: Notification) {
+        tableView.reloadData()
+        print("\(note.userInfo!["restoName"])")
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
