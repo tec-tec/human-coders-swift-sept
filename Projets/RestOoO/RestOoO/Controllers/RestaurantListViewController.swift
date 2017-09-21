@@ -10,25 +10,29 @@ import UIKit
 
 class RestaurantListViewController: UIViewController {
 
+    let directory = Directory.demoDirectory()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 }
 
 extension RestaurantListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 15
+        return directory.list().count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        if indexPath.row%2 == 0 {
-            cell.backgroundColor = UIColor.red
-        }
+//        if indexPath.row%2 == 0 {
+//            cell.backgroundColor = UIColor.red
+//        }
+
+        let currentResto = directory.list()[indexPath.row]
+        cell.textLabel?.text = currentResto.name
+        cell.detailTextLabel?.text = currentResto.address
 
         return cell
     }

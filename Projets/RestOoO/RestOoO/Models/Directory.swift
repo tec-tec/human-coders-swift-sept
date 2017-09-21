@@ -28,4 +28,18 @@ class Directory {
     func remove(at index: Int) {
         restaurants.remove(at: index)
     }
+
+    static func demoDirectory() -> Directory {
+        let d = Directory()
+        d.generateDemoData()
+        return d
+    }
+
+    func generateDemoData() {
+        for i in 0...10 {
+            let randNote = Int(arc4random_uniform(5))
+            let r = Restaurant(name: "Resto \(i)", address: "Adresse \(i)", styles: [], note: randNote, accessible: false)
+            add(r)
+        }
+    }
 }
