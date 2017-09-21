@@ -8,13 +8,24 @@
 
 import UIKit
 
-class RestaurantListViewController: UIViewController {
+class RestaurantListViewController: UIViewController, UISearchResultsUpdating {
 
     let directory = Directory.demoDirectory()
+    let searchController = UISearchController(searchResultsController: nil)
+
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        searchController.searchResultsUpdater = self
+
+        if #available(iOS 11.0, *) {
+            self.navigationItem.searchController = searchController
+        } else {
+            tableView.tableHeaderView = searchController.searchBar
+        }
+
 
         NotificationCenter.default.addObserver(self, selector: #selector(modelUpdated(note:)), name: Notification.Name(Constants.NotificationNames.modelUpdated), object: directory)
 
@@ -44,6 +55,10 @@ class RestaurantListViewController: UIViewController {
             guard let rootController = navController.viewControllers.first as?  ViewController else { return }
             rootController.directory = directory
         }
+    }
+
+    func updateSearchResults(for searchController: UISearchController) {
+        print("Should filter for search \(searchController.searchBar.text)")
     }
 }
 
