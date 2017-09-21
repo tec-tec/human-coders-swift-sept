@@ -11,19 +11,26 @@ import UIKit
 class RestaurantListViewController: UIViewController {
 
     let directory = Directory.demoDirectory()
-    
+    @IBOutlet weak var tableView: UITableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetails" {
-            let vc = segue.destination
-            vc.title = "Youhou"
+
+            guard let cell = sender as? UITableViewCell else { return }
+            guard let indexRow = tableView.indexPath(for: cell)?.row else { return }
+            guard let vc = segue.destination as? DetailsViewController else { return }
+
+            let resto = directory.list()[indexRow]
+            vc.displayedRestaurant = resto
+
         } else if segue.identifier == "showForm" {
             guard let navController = segue.destination as? UINavigationController else { return }
-            guard let rootController = navController.viewControllers.first else { return }
-            rootController.title = "Bon appétit"
+            guard let rootController = navController.viewControllers.first as?  ViewController else { return }
+            rootController.directory = directory
         }
     }
 }

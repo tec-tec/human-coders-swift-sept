@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -71,6 +72,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="aNa-wR-ffE" id="er9-71-kDq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ezw-HT-Gz4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -79,7 +83,7 @@
         <!--Detail-->
         <scene sceneID="FJr-sJ-pBO">
             <objects>
-                <viewController id="Ums-eb-8ud" sceneMemberID="viewController">
+                <viewController id="Ums-eb-8ud" customClass="DetailsViewController" customModule="RestOoO" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fyX-Hs-uzv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -102,6 +106,9 @@
                             <barButtonItem title="Item" id="1Av-Fl-oLy"/>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="restoNameLabel" destination="gi9-tr-K6a" id="6Nb-bL-hpL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VG1-S1-i2j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -211,7 +218,6 @@
         <!--Navigation Controller-->
         <scene sceneID="9DX-Ux-Vi1">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IWk-zv-TE4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bYD-iw-iVm" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" badgeValue="10" systemItem="search" id="Mnc-hG-qXn"/>
                     <toolbarItems/>
@@ -224,13 +230,13 @@
                         <segue destination="y7B-2H-If5" kind="relationship" relationship="rootViewController" id="07t-WF-kln"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IWk-zv-TE4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1215.2" y="32.512315270935964"/>
         </scene>
         <!--Title-->
         <scene sceneID="HVP-W1-mnY">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ads-dP-83C" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="FP7-dc-SeM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GSz-Wi-dXK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -249,6 +255,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" id="DMF-jm-Odp"/>
                     </navigationItem>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ads-dP-83C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1215.2" y="790.64039408866995"/>
         </scene>
@@ -258,6 +265,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ngo-Cc-Xjt" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="45E-AJ-8tZ">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
