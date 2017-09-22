@@ -10,7 +10,7 @@ import UIKit
 
 class RestaurantListViewController: UIViewController, UISearchResultsUpdating {
 
-    let directory = Directory.demoDirectory()
+    let directory = Directory.dirFromSave()
     let searchController = UISearchController(searchResultsController: nil)
 
     @IBOutlet weak var tableView: UITableView!
@@ -19,6 +19,8 @@ class RestaurantListViewController: UIViewController, UISearchResultsUpdating {
         super.viewDidLoad()
 
         searchController.searchResultsUpdater = self
+//        searchController.searchBar.scopeButtonTitles = ["Scope1", "Socpe2","Scope1", "Socpe2","Scope1", "Socpe2"]
+//        searchController.searchBar.showsScopeBar = true
 
         if #available(iOS 11.0, *) {
             self.navigationItem.searchController = searchController

@@ -8,14 +8,16 @@
 
 import Foundation
 
-class Directory {
+class Directory: Codable {
 
     var restaurants = [Restaurant]()
 
     func add(_ restaurant: Restaurant) {
         restaurants.append(restaurant)
 
-        NotificationCenter.default.post(name: Notification.Name("modelUpdated"), object: self, userInfo: ["restoName":restaurant.name])
+        NotificationCenter.default.post(name: Notification.Name(Constants.NotificationNames.modelUpdated), object: self, userInfo: ["restoName":restaurant.name])
+
+        save()
     }
 
     func list() -> [Restaurant] {
@@ -45,4 +47,33 @@ class Directory {
             add(r)
         }
     }
+
+    static func dirFromSave() -> Directory {
+        let dataURL = documentDirectoryUrl.appendingPathComponent("backup.json")
+        guard let data = try? Data(contentsOf: dataURL) else { return Directory.demoDirectory() }
+
+        guard let dir = try? JSONDecoder().decode(Directory.self, from: data) else { return Directory.demoDirectory() }
+
+        return dir
+    }
+
+    private func save() {
+        guard let jsonData = try? JSONEncoder().encode(self) else { return }
+        guard let jsonString = String(data: jsonData, encoding: .utf8) else { return }
+        print(jsonString)
+
+        let dataURL = Directory.documentDirectoryUrl.appendingPathComponent("backup.json")
+        do {
+            try jsonData.write(to: dataURL)
+        } catch {
+            print(error)
+        }
+    }
+
+    static var documentDirectoryUrl: URL = {
+        let fileManager = FileManager.default
+        let url = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
+        return url!
+    }()
+
 }

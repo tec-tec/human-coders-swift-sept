@@ -35,6 +35,13 @@ class ViewController: UIViewController {
 
     //MARK: - UI Actions
 
+    @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
+
+
+        print("View tapped")
+        view.endEditing(false)
+    }
+
     @IBAction func saveRestaurant() {
 
         guard let name = nameTextField.text, name.count > 2 else { return }

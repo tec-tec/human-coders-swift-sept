@@ -13,9 +13,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    class Human {
+        weak var father: Human?
+        var child: Human?
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        let h1 = Human()
+        let h2 = Human()
+        h1.child = h2
+        h2.father = h1
+
+
+//        UILabel.appearance(for: UITraitCollection(verticalSizeClass: .compact)).backgroundColor = UIColor.green
+//        UILabel.appearance(for: UITraitCollection(verticalSizeClass: .regular)).backgroundColor = UIColor.clear
+
+        let prefs = UserDefaults.standard
+//        prefs.set(true, forKey: "moi")
+
+        let b = prefs.bool(forKey: "moi")
+        print(b)
         return true
     }
 
@@ -27,6 +46,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+
+        let dir = Directory.demoDirectory()
+
+        guard let jsonData = try? JSONEncoder().encode(dir) else { return }
+        guard let jsonString = String(data: jsonData, encoding: .utf8) else { return }
+        print(jsonString)
+
+        guard let dir2 = try? JSONDecoder().decode(Directory.self, from: jsonData) else { return }
+        print(dir2)
+
+        let pliencoder = PropertyListEncoder()
+        pliencoder.outputFormat = .xml
+
+        guard let plistData = try? pliencoder.encode(dir) else { return }
+        guard let xmlString = String(data: plistData, encoding: .utf8) else { return }
+        print(xmlString)
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {

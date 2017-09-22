@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct Restaurant: Hashable {
+struct Restaurant: Hashable, Codable {
 
-    enum Style: String {
+    enum Style: String, Codable {
         case japanese
         case french
         case burger
